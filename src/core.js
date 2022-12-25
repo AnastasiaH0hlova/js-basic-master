@@ -6,7 +6,7 @@ function isInteger(n) {
 //Напишите функцию, которая возвращает массив четных чисел от 2 до 20 включительно
 function even() {
     let array = [];
-    for (let i = 1; i <= 20; i += 1)   
+    for (let i = 1; i <= 20; ++i)   
         if(!(i%2)){array.push(i);}    
     return array;
 }
@@ -14,7 +14,7 @@ function even() {
 //Напишите функцию, считающую сумму чисел до заданного используя цикл
 function sumTo(n) {
     let sum = 0;
-    for (let i = 1; i <= n; i += 1) 
+    for (let i = 1; i <= n; ++i) 
       sum+=i;   
     return sum;
 }
@@ -57,7 +57,7 @@ function getOperationFn(initialValue, operatorFn) {
     let storedValue = initialValue;
     return function(newValue) {
 
-        if (operatorFn) {
+        if (operatorFn && typeof operatorFn === 'function') {
             storedValue = operatorFn(storedValue, newValue);
         }
         return storedValue;
